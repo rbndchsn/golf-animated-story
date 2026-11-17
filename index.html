@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0b2021">
+  <meta name="description" content="An illustrated 43-scene, five-act motion comic about golf's history, a provocative fertility interpretation, and a serious archival question. Historical evidence is distinguished from speculation.">
+  <meta property="og:title" content="The Game Beneath the Game? | The 19th Hole">
+  <meta property="og:description" content="A motion comic in 43 scenes: history, symbolism, and the questions that remain open.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/social/cover.png">
+  <title>The Game Beneath the Game? | An Illustrated Inquiry</title>
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <script src="data/scenes.js" defer></script>
+  <script src="data/illustrations.js" defer></script>
+  <script src="js/motion.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#story">Skip to story</a>
+<header class="site-header">
+  <a class="brand" id="home" href="#" aria-label="Return to the beginning">
+    <span class="brand-emblem" aria-hidden="true">19</span>
+    <span class="brand-name"><span>THE NINETEENTH HOLE</span><small>AN ILLUSTRATED INQUIRY</small></span>
+  </a>
+  <div class="head-actions">
+    <span class="header-note">STORY, RECORD &amp; INTERPRETATION</span>
+    <button class="iconbtn" id="indexOpen" aria-haspopup="dialog" title="Scene index">☷ <span>SCENES</span></button>
+    <button class="iconbtn" id="aboutOpen" aria-haspopup="dialog" title="About this story">ⓘ <span>ABOUT</span></button>
+  </div>
+</header>
+<main>
+  <section id="cover" aria-label="Story introduction">
+    <div class="cover-type">
+      <div class="eyebrow">✦ A CLUBHOUSE CONVERSATION IN FIVE ACTS</div>
+      <h1>The Game<br><span class="hollow">Beneath</span><br>the <em>Game?</em></h1>
+      <p class="cover-desc">Two stick figures enter a golf clubhouse. One sees a centuries-old symbolic pattern. The other brings the archives. Together, they follow the clues into a far more uncomfortable historical question.</p>
+      <div class="cover-cta">
+        <button class="iconbtn primary" id="enterStory">ENTER THE CLUBHOUSE <span aria-hidden="true">→</span></button>
+        <button class="iconbtn" id="tourActs">EXPLORE THE ACTS <span aria-hidden="true">⌁</span></button>
+      </div>
+      <div class="cover-foot"><span>43 scenes</span><span>5 acts</span><span>Living, testable hypothesis</span></div>
+    </div>
+    <div class="cover-plate" aria-hidden="true">
+      <div class="cover-coin">?</div>
+      <div class="cover-art" id="coverArt"></div>
+      <div class="cover-stamp">NOT A VERDICT · AN INVESTIGATION</div>
+    </div>
+  </section>
+
+  <section id="story" class="story-shell" hidden tabindex="-1" aria-label="Interactive story player">
+    <div class="story-top">
+      <div>
+        <div class="story-kicker" id="actKicker">PROLOGUE / THE CLUBHOUSE</div>
+        <h1 id="sceneTitle">A conversation at the 19th hole</h1>
+      </div>
+      <div class="story-counter" aria-label="Current scene"><strong id="sceneNumber">01</strong><span>/ 43</span></div>
+    </div>
+    <nav class="timeline" aria-label="Jump to an act" id="actTimeline">
+      <button class="actstep" data-target="0" type="button">I · The origins</button>
+      <button class="actstep" data-target="5" type="button">II · The reading</button>
+      <button class="actstep" data-target="19" type="button">III · The rivals</button>
+      <button class="actstep" data-target="27" type="button">IV · The children</button>
+      <button class="actstep" data-target="38" type="button">V · The inquiry</button>
+    </nav>
+    <div class="player-grid">
+      <div class="screen-wrap" id="screen" aria-label="Scene illustration" role="img">
+        <div class="screen-art" id="sceneArt" aria-hidden="true"></div>
+        <div class="filmline" aria-hidden="true"></div>
+        <div class="corner-flourish" aria-hidden="true"></div>
+        <div class="scene-cut" id="sceneCut" aria-hidden="true"></div>
+        <div class="screen-act-label" id="screenAct">THE 19TH HOLE</div>
+      </div>
+      <aside class="desk" id="desk" aria-label="Scene evidence and reveals">
+        <div class="desk-head">
+          <span class="desk-label">FIELD NOTE / <span id="fieldNum">001</span></span>
+          <span class="status-pill open" id="statusTag">OPEN QUESTION</span>
+        </div>
+        <div class="desk-copy preclue">
+          <h2>Look a little closer.</h2>
+          <p>Hear the conversation, then uncover the historical clue or symbolic reading behind this frame.</p>
+        </div>
+        <div class="clue-content" id="clueContent" aria-live="polite">
+          <div class="kinetic" id="kinetic" aria-hidden="true"></div>
+          <div class="clue-txt">
+            <h2 class="clue-title" id="clueTitle">The clue</h2>
+            <p class="clue-body" id="clueText"></p>
+            <div class="clue-tools">
+              <button class="mini-btn" id="sourceOpen">SOURCE &amp; CONTEXT ↗</button>
+              <button class="mini-btn" id="copyLink">SHARE THIS FRAME ↗</button>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+    <section class="dialogue" aria-label="Quinn and Vale conversation">
+      <article class="speech-card quinn" id="quinnCard">
+        <div class="actor quinn active" id="quinnAvatar" aria-hidden="true"></div>
+        <div class="speech-lines"><span class="who">QUINN / THE QUESTIONER</span><p id="quinnLine"></p></div>
+      </article>
+      <article class="speech-card vale hidden-beat" id="valeCard" aria-hidden="true">
+        <div class="actor vale" id="valeAvatar" aria-hidden="true"></div>
+        <div class="speech-lines"><span class="who">VALE / THE ARCHIVIST</span><p id="valeLine"></p></div>
+      </article>
+    </section>
+    <div class="controls" role="group" aria-label="Playback controls">
+      <button class="iconbtn" id="backButton" aria-label="Previous scene" title="Previous scene (left arrow)">←</button>
+      <button class="btn-big" id="advanceButton" title="Advance a beat (space or right arrow)">HEAR THE RESPONSE →</button>
+      <button class="iconbtn" id="autoButton" aria-pressed="false" title="Auto play or pause">▶ <span>AUTO</span></button>
+      <button class="iconbtn" id="speedButton" title="Playback speed">1×</button>
+      <button class="iconbtn" id="soundButton" aria-pressed="false" title="Enable subtle sound effects">♫ <span>OFF</span></button>
+      <button class="iconbtn" id="fullscreenButton" title="Full screen (F)">⛶</button>
+      <div class="progress-wrap" aria-label="Story progress">
+        <div class="progress-bg" role="progressbar" aria-valuemin="1" aria-valuemax="43" aria-valuenow="1" id="progressBar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-caption" id="progressCaption">SCENE 1 OF 43 · ENTER TO ADVANCE</div>
+      </div>
+    </div>
+    <div class="bottom-copy">
+      <p><strong>Reading key:</strong> Record = attested source · Reading = symbolic interpretation · Open question = unverified. <a href="#" id="methodLink">Research method</a></p>
+      <p>SPACE / → advance · ← previous · I index · F fullscreen</p>
+    </div>
+  </section>
+</main>
+
+<div class="overlay" id="infoOverlay" hidden>
+  <section class="modal" id="infoModal" role="dialog" aria-modal="true" aria-label="Research notes" tabindex="-1">
+    <button class="modal-close" data-close="infoOverlay" aria-label="Close notes">✕</button>
+    <div id="modalBody"></div>
+  </section>
+</div>
+<div class="overlay" id="indexOverlay" hidden>
+  <section class="modal" id="indexModal" role="dialog" aria-modal="true" aria-labelledby="indexTitle" tabindex="-1">
+    <button class="modal-close" data-close="indexOverlay" aria-label="Close scenes">✕</button>
+    <div class="eyebrow">AN ATLAS OF THE STORY</div>
+    <h2 id="indexTitle">Choose a scene.</h2>
+    <p>Jump anywhere. Each scene has a question, an answer, and a visual clue. The narrative remains the same whether you play or explore.</p>
+    <label for="indexSearch" class="sr-only">Search scenes</label>
+    <input id="indexSearch" placeholder="Search: bogey, caddie, birdie..." autocomplete="off" style="width:100%;padding:14px;border:1px solid #b6b4a6;border-radius:11px;background:#fff;color:#1b3738;font:inherit">
+    <div class="index-grid" id="indexGrid"></div>
+  </section>
+</div>
+<div class="sr-only" id="announcer" role="status" aria-live="polite"></div>
+<noscript><p style="padding:24px;text-align:center">This story needs JavaScript enabled to play its dialogue and motion. No account or network connection is required.</p></noscript>
+</body>
+</html>
