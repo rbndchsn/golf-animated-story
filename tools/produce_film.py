@@ -320,10 +320,13 @@ def render_all(plan):
 
 def assemble(plan):
   target=EXPORT/'The_Game_Beneath_The_Game_Full_Film.mp4'
-  # Ensure output is as close to audio timeline as possible. FFmpeg writes a streamable MP4.
-  run(['ffmpeg','-hide_banner','-loglevel','error','-y','-f','concat','-safe','0','-i',str(WORK/'concat.txt'),'-i',str(EXPORT/'soundtrack.wav'),'-c:v','copy','-c:a','aac','-b:a','64k','-ar','48000','-ac','2','-movflags','+faststart','-shortest',str(target)],timeout=300)
+  # Two-pass export avoids slow clip demuxing and audio transcoding in one step.
+  video_only=EXPORT/'video_only.mp4'
+  run(['ffmpeg','-hide_banner','-loglevel','error','-y','-f','concat','-safe','0','-i',str(WORK/'concat.txt'),'-an','-c:v','copy','-movflags','+faststart',str(video_only)],timeout=180)
+  # Recompress ultrafast source clips to an efficient streamable 720p web master.
+  run(['ffmpeg','-hide_banner','-loglevel','error','-y','-i',str(video_only),'-i',str(EXPORT/'soundtrack.wav'),'-map','0:v:0','-map','1:a:0','-c:v','libx264','-preset','veryfast','-crf','28','-pix_fmt','yuv420p','-c:a','aac','-b:a','48k','-ar','24000','-ac','1','-movflags','+faststart','-shortest','-metadata','title=The Game Beneath the Game? | The Nineteenth Hole',str(target)],timeout=300)
   meta=json.loads(run(['ffprobe','-v','quiet','-show_format','-show_streams','-of','json',str(target)]))
-  (EXPORT/'render_report.json').write_text(json.dumps({'size_bytes':target.stat().st_size,'duration_seconds':float(meta['format']['duration']),'video_codec':next(x for x in meta['streams'] if x['codec_type']=='video')['codec_name'],'audio_codec':next(x for x in meta['streams'] if x['codec_type']=='audio')['codec_name'],'scenes':43,'chapters':5,'title':'The Game Beneath the Game?','voices':'Flite CMU slt, awb and rms synthetic voices','evidence':'All historical claims and speculative readings retained as labeled in scenes.js'},indent=2),encoding='utf8')
+  (EXPORT/'render_report.json').write_text(json.dumps({'size_bytes':target.stat().st_size,'duration_seconds':float(meta['format']['duration']),'video_codec':next(x for x in meta['streams'] if x['codec_type']=='video')['codec_name'],'audio_codec':next(x for x in meta['streams'] if x['codec_type']=='audio')['codec_name'],'scenes':43,'chapters':5,'title':'The Game Beneath the Game?','voices':'Flite CMU slt, awb and rms synthetic voices','evidence':'Historical claims and speculative readings are differentiated in scenes.js'},indent=2),encoding='utf8')
   print('MASTER:',target,'MB:',target.stat().st_size/1e6,'duration',meta['format']['duration'],flush=True)
   return target
 

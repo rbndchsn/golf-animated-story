@@ -19,3 +19,5 @@ The presentation retains the interpretive and historical claims as labeled in th
 ## GitHub Pages video delivery
 
 The public site contains `chunks/film_00.part`, etc., and a checksum/size manifest rather than a single >9 MB Git blob. `js/film.js` fetches the binary chunks in parallel and reconstructs the *exact* original MP4 in memory as one Blob URL, so the browser provides a normal full-duration video timeline and seekers can jump across chapters. Download MP4 saves that complete reconstructed file. This is a transport/build constraint, not a split user experience. The original unchunked MP4 is retained in the Drive project and outside the website build.
+
+To regenerate a revised film: `python tools/produce_film.py prepare`, then `render`, then `assemble`, and finally `python tools/chunk_film.py`. Replace the manifest and all chunk files together when publishing.
