@@ -1,0 +1,40 @@
+{
+  "filename": "The_Game_Beneath_The_Game_Full_Film.mp4",
+  "title": "The Game Beneath the Game?",
+  "mimeType": "video/mp4",
+  "bytes": 9222559,
+  "sha256": "1f2786ece0295be4ffd2ae90837af6d579e45a8a0772ff48821620370ece873d",
+  "durationSeconds": 762.733,
+  "chunks": [
+    {
+      "path": "film/chunks/film_00.part",
+      "bytes": 1700000,
+      "sha256": "642df76b0ccaddb47c048accbfac8bbe439e876e07e29eb3bdf8eb6ab0c8cf4d"
+    },
+    {
+      "path": "film/chunks/film_01.part",
+      "bytes": 1700000,
+      "sha256": "a804e15877102870fb9584172cb5ddcdd7362bd5777e275ee2e6b9a431088fa1"
+    },
+    {
+      "path": "film/chunks/film_02.part",
+      "bytes": 1700000,
+      "sha256": "46574096f301ab34c5d96a1a4a14ebd237d91e48963714298d32340d899cc9b4"
+    },
+    {
+      "path": "film/chunks/film_03.part",
+      "bytes": 1700000,
+      "sha256": "1742d9fc6458d6ba36a6e120290df744869ab92e5101608f4508960c19cacde2"
+    },
+    {
+      "path": "film/chunks/film_04.part",
+      "bytes": 1700000,
+      "sha256": "96801e3e6fbc9445997d91dc721f9e484304aedb0294ba412dafd6a37f56430e"
+    },
+    {
+      "path": "film/chunks/film_05.part",
+      "bytes": 722559,
+      "sha256": "07a5d25f24cf37666e29231d6d50754565b748c634b8647be73168ae070eb272"
+    }
+  ]
+}
