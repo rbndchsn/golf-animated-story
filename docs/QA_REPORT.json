@@ -1,0 +1,11 @@
+{
+  "desktop": {
+    "scenes": 43
+  },
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390,
+    "bodyWidth": 390
+  },
+  "errors": []
+}
