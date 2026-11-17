@@ -4,6 +4,10 @@
 
 The exhibit features **43 illustrated scenes in five acts**. Quinn (the Questioner) and Vale (the Archivist) conduct an animated clubhouse conversation. Each scene has three beats: question, response, and a kinetic evidence or interpretation card. Historical reports and allegations are deliberately labeled separately.
 
+## Watch the complete voiced film
+
+Open [`watch.html`](watch.html) or click **Watch the Complete Film** on the homepage. The film is a 12 minute 43 second HD (720p) MP4 with distinct synthetic voices, chapter navigation, and optional WebVTT captions. The standalone MP4 is in `film/`. The existing interactive story remains fully functional.
+
 ## Start here
 
 **Just watch:** Double-click `dist/Golf_The_Game_Beneath_The_Game_Standalone.html`. It includes the entire site as one file and needs no server or internet connection.
@@ -16,7 +20,9 @@ The exhibit features **43 illustrated scenes in five acts**. Quinn (the Question
 
 ```text
 golf-animated-story/
-├── index.html                         # Public site entry point
+├── index.html                         # Interactive story entry point
+├── watch.html                         # Complete film player and chapter navigation
+├── film/                              # MP4, poster, captions, chapter metadata
 ├── .nojekyll                           # GitHub Pages compatibility
 ├── README.md
 ├── assets/
@@ -97,5 +103,5 @@ The private working dossier is **not included** in the deployable site, and its 
 - Animated speech avatars, hand-drawn scene entrances, bespoke animated clue motifs
 - Offline standalone edition
 - Browser-tested scene navigation and mobile layout (see `docs/QA_REPORT.json`)
-- **Not uploaded to a public GitHub repository and not yet published online.**
+- **Public repository:** rbndchsn/golf-animated-story. GitHub Pages activation depends on repository settings.
 
